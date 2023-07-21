@@ -1,0 +1,233 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Dig Deep Ebay Listings</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="form" id="urlform">
+            <div class="form-group">
+              <input type="text" placeholder="URL" class="form-control" id="url" style="width:320px;">
+            </div>
+            &nbsp;
+            <button type="submit" class="btn btn-light">Dig Deep!</button>
+            &nbsp;
+            <button type="button" class="btn btn-danger" id="reset">Reset</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <br/>
+    <div class="container">
+        <!-- Help or Explanation menu -->
+        <div id="showinfo">
+            <div class="jumbotron">
+                <h1>Dig Deep - Ebay Listing Analysis</h1>
+                <p>This is a tool to help analyze ebay listings for errors, areas of improvement</p>
+                <ol>
+                <li>Title - Compare to other listings</li>
+                <li>Description Length - Short/Compare</li>
+                <li>Images - Are they bright and non-blurry</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Showcase the Listing Info -->
+        <div id="displayform">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="Title">Title</label>
+                    <input type="text" class="form-control" id="Title" readonly>
+                </div>
+                <div class="col-md-4">
+                    <label for="Condition">Condition</label>
+                    <input type="text" class="form-control" id="Condition" readonly>
+                </div>
+                <div class="col-md-4">
+                    <label for="Price">Price</label>
+                    <input type="text" class="form-control" id="Price" readonly>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-md-12 form-group shadow-textarea">
+                  <label for="description">Description</label>
+                  <textarea class="form-control z-depth-1" id="description" rows="3" placeholder="Write something here..." readonly></textarea>
+                </div>        
+            </div>
+            <br/>
+            <div class="row">
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                    <img src="http://fakeimg.pl/365x365/" class="img-responsive" id="imageone">
+                </div>        
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                    <img src="http://fakeimg.pl/365x365/" class="img-responsive" id="imagetwo">
+                </div>        
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                    <img src="http://fakeimg.pl/365x365/" class="img-responsive" id="imagethree">
+                </div>        
+            </div>
+            <br/>
+            <div class="row">
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                    <img src="http://fakeimg.pl/365x365/" class="img-responsive" id="imagefour">
+                </div>        
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                    <img src="http://fakeimg.pl/365x365/" class="img-responsive" id="imagefive">
+                </div>        
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                    <img src="http://fakeimg.pl/365x365/" class="img-responsive" id="imagesix">
+                </div>        
+            </div>
+        </div>
+        
+        <!-- Analysis of Key Listing Fields -->
+        <div id="anaylsis">
+        </div>
+    </div>
+
+    <hr>
+    <footer class="footer" style="text-align:center;">
+        <br/>
+        <p>Copyright @ Craig M. Rosenblum 2021 - Forever</p>
+        <br/>
+    </footer>    
+
+    </div>
+    <!-- /container --> 
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- jquery url ajax handling -->
+    <script type="text/javascript">
+    $( document ).ready(function() {
+    
+        // https://stackoverflow.com/questions/2723140/validating-url-with-jquery-without-the-validate-plugin
+        function isUrlValid(url) {
+            return /^(https?|s?ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(url);
+        }
+        
+        // on page load hide div
+        $('#displayform').hide();
+        
+        // on reset button
+        $("#reset").click(function(e){        
+
+            // prevent disable
+            e.preventDefault();
+            
+            // reset all fields
+            $("#Title").val('');
+            $("#Condition").val('');
+            $("#Price").val('');
+            $('#description').val('');
+
+            // reset all images
+            $("#imageone").attr('src', 'http://fakeimg.pl/365x365/');
+            $("#imagetwo").attr('src', 'http://fakeimg.pl/365x365/');
+            $("#imagethree").attr('src', 'http://fakeimg.pl/365x365/');
+            $("#imagefour").attr('src', 'http://fakeimg.pl/365x365/');
+            $("#imagefive").attr('src', 'http://fakeimg.pl/365x365/');
+            $("#imagesix").attr('src', 'http://fakeimg.pl/365x365/');
+            
+            // on page load hide div
+            $('#displayform').hide();
+        
+        });
+        
+        // on form button submit
+        $("#urlform").on('submit', function(e){
+        
+            // prevent disable
+            e.preventDefault();
+
+            // on page load hide div
+            $('#displayform').show();
+
+            // get url field value
+            var url = $("#url").val();
+            
+            // trim url to 37 characters
+            var url = $.trim(url).substring(0, 37);
+            
+            // now update url field with that
+            $('#url').val(url);
+            
+            // now do ajax post
+             $.ajax({
+                url: "ajax_fill_form.php",
+                type: "post",
+                data: {"url":url},
+                success: function (response) {
+                    console.log(response);
+                    // now parse the ajax response
+                    // var data = JSON.parse(response);
+                    
+                    // now fill form fields
+                    $("#Title").val(data['title']);
+                    $("#Condition").val(data['condition']);
+                    $("#Price").val(data['price']);
+                    $('#description').html(data['description']);
+
+                    // set image src to this image
+                    $("#imageone").attr('src', data['imageone']);
+                    $("#imagetwo").attr('src', data['imagetwo']);
+                    $("#imagethree").attr('src', data['imagethree']);
+                    $("#imagefour").attr('src', data['imagefour']);
+                    $("#imagefive").attr('src', data['imagefive']);
+                    $("#imagesix").attr('src', data['imagesix']);                    
+                    
+                    
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                   console.log(textStatus, errorThrown);
+
+
+                }
+            });
+                    
+        });
+    
+    });
+    </script>
+
+    </body>
+</html>
