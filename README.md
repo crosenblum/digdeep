@@ -10,4 +10,4 @@ Future Goals:
 2. Write out more detail specifications
 3. Add more analytical capabilities
 
-![digdeep_screenshot](https://github.com/crosenblum/digdeep/assets/605695/dc8ea1a2-fd13-4b6c-a938-b7e958633064)
+![digdeep_screenshot](https://github.com/crosenblum/digdeep/assets/605695/e316bc83-f7a4-4d3a-a831-481fbf54177d)
